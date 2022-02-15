@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardList from "./components/cardlist.component";
+import SearchBox from "./components/searchbox.component";
 
 class App extends Component {
   constructor() {
@@ -30,12 +31,21 @@ class App extends Component {
       .catch((error) => console.log(error));
   }
 
+  onSearchChange = (event) => {
+    return this.setState({ searchField: event.target.value });
+  };
+
   render() {
-    const { users } = this.state;
+    const { users, searchField } = this.state;
+    const filteredUsers = users.filter((user) => {
+      const fullName = `${user.firstName} ${user.lastName}`;
+      return fullName.toLowerCase().includes(searchField.toLowerCase());
+    });
     return (
       <div className="tc">
         <h1>Friends Rolodex</h1>
-        <CardList users={users} />
+        <SearchBox searchChange={this.onSearchChange} />
+        <CardList users={filteredUsers} />
       </div>
     );
   }

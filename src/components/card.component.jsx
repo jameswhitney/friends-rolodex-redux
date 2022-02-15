@@ -11,8 +11,8 @@ const Card = ({ name, email, picture }) => {
         alt="User"
         src={`${picture}`}
       />
-      <h3 className="f3 mb2">{name}</h3>
-      <p className="f5 fw4 gray mt0">{email}</p>
+      <h3 className="f4">{name}</h3>
+      <p className="f6 fw4 gray mt0">{email}</p>
     </div>
   );
 };
