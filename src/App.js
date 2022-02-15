@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Scroll from "./components/scroll.component";
 import CardList from "./components/cardlist.component";
 import SearchBox from "./components/searchbox.component";
 import Spinner from "./components/spinner.component";
@@ -48,7 +49,9 @@ class App extends Component {
       <div className="tc">
         <h1>Friends Rolodex</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <CardList users={filteredUsers} />
+        <Scroll>
+          <CardList users={filteredUsers} />
+        </Scroll>
       </div>
     );
   }
