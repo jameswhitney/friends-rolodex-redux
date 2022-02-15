@@ -46,7 +46,7 @@ class App extends Component {
       <Spinner />
     ) : (
       <div className="tc">
-        <h1>Friend Rolodex</h1>
+        <h1>Friends Rolodex</h1>
         <SearchBox searchChange={this.onSearchChange} />
         <CardList users={filteredUsers} />
       </div>
