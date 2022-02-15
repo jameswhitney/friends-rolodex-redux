@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardList from "./components/cardlist.component";
 import SearchBox from "./components/searchbox.component";
+import Spinner from "./components/spinner.component";
 
 class App extends Component {
   constructor() {
@@ -41,9 +42,11 @@ class App extends Component {
       const fullName = `${user.firstName} ${user.lastName}`;
       return fullName.toLowerCase().includes(searchField.toLowerCase());
     });
-    return (
+    return !users.length ? (
+      <Spinner />
+    ) : (
       <div className="tc">
-        <h1>Friends Rolodex</h1>
+        <h1>Friend Rolodex</h1>
         <SearchBox searchChange={this.onSearchChange} />
         <CardList users={filteredUsers} />
       </div>
