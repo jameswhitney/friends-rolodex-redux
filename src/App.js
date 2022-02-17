@@ -1,15 +1,29 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Scroll from "./components/scroll.component";
 import CardList from "./components/cardlist.component";
 import SearchBox from "./components/searchbox.component";
 import Spinner from "./components/spinner.component";
+
+import { setSearchField } from "./actions";
+
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+  };
+};
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       users: [],
-      searchField: "",
     };
   }
 
@@ -33,12 +47,9 @@ class App extends Component {
       .catch((error) => console.log(error));
   }
 
-  onSearchChange = (event) => {
-    return this.setState({ searchField: event.target.value });
-  };
-
   render() {
-    const { users, searchField } = this.state;
+    const { users } = this.state;
+    const { searchField, onSearchChange } = this.props;
     const filteredUsers = users.filter((user) => {
       const fullName = `${user.firstName} ${user.lastName}`;
       return fullName.toLowerCase().includes(searchField.toLowerCase());
@@ -48,7 +59,7 @@ class App extends Component {
     ) : (
       <div className="tc">
         <h1>Friends Rolodex</h1>
-        <SearchBox searchChange={this.onSearchChange} />
+        <SearchBox searchChange={onSearchChange} />
         <Scroll>
           <CardList users={filteredUsers} />
         </Scroll>
@@ -57,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
