@@ -5,9 +5,9 @@
 
 const Card = ({ name, email, picture }) => {
   return (
-    <div className="tc grow bg-washed-blue pa2 br3 ma2 dib bw2 shadow-5">
+    <div className="tc grow bg-white-80 pa2 br3 ma2 dib bw2 shadow-5">
       <img
-        className="br-100 bg-lightest-gray h4 w4 dib ba b--black-05 pa2"
+        className="br-100 bg-black-70 h4 w4 dib ba b--black-05 pa1"
         alt="User"
         src={`${picture}`}
       />
