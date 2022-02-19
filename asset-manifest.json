@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/friends-rolodex-redux/static/css/main.a28de3b9.css",
+    "main.js": "/friends-rolodex-redux/static/js/main.83885816.js",
+    "static/js/787.b0fa83d8.chunk.js": "/friends-rolodex-redux/static/js/787.b0fa83d8.chunk.js",
+    "index.html": "/friends-rolodex-redux/index.html",
+    "main.a28de3b9.css.map": "/friends-rolodex-redux/static/css/main.a28de3b9.css.map",
+    "main.83885816.js.map": "/friends-rolodex-redux/static/js/main.83885816.js.map",
+    "787.b0fa83d8.chunk.js.map": "/friends-rolodex-redux/static/js/787.b0fa83d8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a28de3b9.css",
+    "static/js/main.83885816.js"
+  ]
+}
