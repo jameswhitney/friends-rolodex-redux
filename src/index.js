@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger"; // middleware package to log actions and state to console
 import thunkMiddleware from "redux-thunk"; // middleware to handle async operations
-import { searchFriends } from "./reducers";
+import { searchFriends, requestFriends } from "./reducers";
 import "./index.css";
 import "tachyons";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const logger = createLogger(); // create logger instance to listen and log actions and state
+const rootReducer = combineReducers({ searchFriends, requestFriends }); // Combine reducers for use in store
 const store = createStore(
-  searchFriends,
+  rootReducer,
   applyMiddleware(thunkMiddleware, logger)
 );
 

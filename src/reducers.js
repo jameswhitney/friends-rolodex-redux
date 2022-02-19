@@ -23,7 +23,7 @@ export const searchFriends = (state = initialStateSearch, action = {}) => {
 
 const initialStateFriends = {
   isPending: false,
-  friends: [],
+  users: [],
   error: "",
 };
 
@@ -37,7 +37,7 @@ export const requestFriends = (state = initialStateFriends, action = {}) => {
     case REQUEST_FRIENDS_SUCCESS:
       return {
         ...state,
-        friends: action.payload,
+        users: action.payload,
         isPending: false,
       };
     case REQUEST_FRIENDS_FAILED:

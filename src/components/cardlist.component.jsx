@@ -7,9 +7,9 @@ const CardList = ({ users }) => {
         return (
           <Card
             key={i}
-            name={`${user.firstName} ${user.lastName}`}
+            name={`${user.name.first} ${user.name.last}`}
             email={user.email}
-            picture={user.picture}
+            picture={user.picture.large}
           />
         );
       })}
